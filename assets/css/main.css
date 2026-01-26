@@ -1,0 +1,17 @@
+/* MODO CLARO (por defecto) */
+html {
+  background-color: #f3f3f3;
+  color: #333;
+}
+
+/* MODO OSCURO (elegante, no negro puro) */
+html.theme-dark {
+  background-color: #1e1e1e;
+  color: #f3f4f6;
+}
+
+/* Transición suave */
+html,
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
