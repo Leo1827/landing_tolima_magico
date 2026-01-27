@@ -1,20 +1,21 @@
 <template>
   <header
-    class="fixed top-0 w-full z-75 bg-white/20 backdrop-blur-md border-b border-[#6D1B2D]"
+    class="fixed top-0 w-full z-75 bg-white/70 backdrop-blur-md border-b border-[#6D1B2D]"
   >
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="max-w-7xl md:px-0 px-6 mx-auto py-3 flex items-center justify-between">
 
       <!-- LOGO -->
       <a href="/" class="flex items-center gap-3">
         <img
           src="/images/logo.png"
           alt="Tolima Mágico - Turismo Regional en Colombia"
-          class="h-10 md:h-12 w-auto"
+          class="h-10 md:h-14 w-auto"
         />
         <span class="hidden sm:block text-xl font-bold text-[#6D1B2D]">
           Tolima <span class="text-[#D4AF37]">Mágico</span>
         </span>
       </a>
+
 
       <!-- NAV DESKTOP -->
       <nav class="hidden md:flex items-center gap-8 font-medium">
@@ -26,11 +27,21 @@
         <!-- CTA -->
         <a
           href="#contacto"
-          class="ml-4 px-5 py-2 rounded-full bg-[#6D1B2D] text-white font-semibold hover:bg-[#D4AF37] hover:text-[#6D1B2D] transition"
+          class="ml-4 px-8 py-1 rounded-full bg-[#6D1B2D] text-white font-semibold hover:bg-[#D4AF37] hover:text-[#6D1B2D] transition"
         >
-          Explorar
+          Contacto
         </a>
       </nav>
+
+      <!-- phone and email -->
+      <div class="hidden md:flex">
+        <i class="fa-solid fa-phone text-xl text-[#D4AF37] mr-1"></i>
+        +57 325-6372653
+
+        <i class="fa-solid fa-sms text-xl text-[#D4AF37] ml-6 mr-1"></i>
+        info@tolimagico.co
+      </div>
+
 
       <!-- BOTÓN MÓVIL -->
       <button
@@ -58,6 +69,14 @@
         <a @click="closeMenu" href="#destinos" class="mobile-link">Destinos</a>
         <a @click="closeMenu" href="#experiencias" class="mobile-link">Experiencias</a>
         <a @click="closeMenu" href="#contacto" class="mobile-link">Contacto</a>
+
+        <div class="">
+          <i class="fa-solid fa-phone text-xl text-[#D4AF37]"></i>
+          +57 325-6372653
+
+          <i class="fa-solid fa-mail text-xl text-[#D4AF37] ml-3"></i>
+          info@tolimagico.co
+        </div>
 
         <a
           href="#destinos"
