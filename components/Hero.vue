@@ -24,15 +24,13 @@
       <!-- MAPA TOLIMA REAL -->
       <!-- IMAGEN DEPARTAMENTO DEL TOLIMA -->
       <div
-        class="relative bg-white/10 backdrop-blur-md rounded-3xl p-6
+        class="relative backdrop-blur-md rounded-3xl p-6
               flex justify-center items-center min-h-[520px]"
       >
-        <img
-          src="/images/tolima.png"
-          alt="Mapa del departamento del Tolima, Colombia"
-          class="w-[650px] h-[550px] max-w-sm lg:max-w-md object-contain
-                drop-shadow-2xl hover:scale-105 transition duration-300"
-        />
+          <!-- MAPA SVG COLOMBIA -->
+          <div ref="mapContainer" v-html="tolimaSvg" 
+              class="w-full h-full flex justify-center items-center">
+          </div>
 
         <span class="absolute bottom-4 text-xs text-white/70">
           Departamento del Tolima · Colombia
@@ -44,16 +42,24 @@
         class="bg-white/10 backdrop-blur-md rounded-3xl p-6 min-h-[260px]"
       >
         <h3 class="text-xl font-bold text-[#D4AF37] mb-2">
-          {{ activeRegion.name }}
+          {{ selected?.nombre || hovered?.nombre || 'Seleccione un municipio' }}
         </h3>
 
         <p class="text-white/90 text-sm leading-relaxed">
-          {{ activeRegion.description }}
+          {{ selected?.descripcion || 'Haz clic en un municipio para ver detalles.' }}
         </p>
 
-        <ul class="mt-4 space-y-2 text-sm">
-          <li v-for="item in activeRegion.places" :key="item">
-            • {{ item }}
+        <ul v-if="selected?.tours" class="mt-4 space-y-2 text-sm">
+          <li
+            v-for="tour in selected.tours"
+            :key="tour.slug"
+          >
+            <NuxtLink
+              :to="`/tours/${tour.slug}`"
+              class="text-[#D4AF37] hover:underline hover:text-white transition"
+            >
+              → {{ tour.name }}
+            </NuxtLink>
           </li>
         </ul>
       </div>
@@ -62,35 +68,90 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import TolimaMap from '~/components/TolimaMap.vue'
+  import { ref } from 'vue'
+  import tolimaSvg from '~/public/images/maptolima.svg?raw'
+  import { useTolimaMap } from '~/composables/useTolimaMap'
 
-const municipios = {
-  Ibagué: {
-    name: 'Ibagué',
-    description: 'Capital musical de Colombia y puerta de entrada al Tolima.',
-    places: ['Cañón del Combeima', 'Conservatorio', 'Centro histórico']
-  },
-  Honda: {
-    name: 'Honda',
-    description: 'Ciudad histórica a orillas del río Magdalena.',
-    places: ['Puente Navarro', 'Centro colonial']
-  }
-}
+  const mapContainer = ref(null)
 
-const activeRegion = ref({
-  name: 'Selecciona un municipio',
-  description: 'Haz clic en un municipio del mapa para ver su información.',
-  places: []
-})
-
-const onMunicipioSelect = (nombre) => {
-  activeRegion.value =
-    municipios[nombre] || {
-      name: nombre,
-      description: 'Información turística próximamente.',
-      places: []
+  const municipios = {
+    Ibague: {
+      nombre: 'Ibagué',
+      descripcion: 'Capital musical de Colombia, rodeada de montañas y naturaleza.',
+      tours: [
+        {
+          name: 'Cañón del Combeima',
+          slug: 'canon-del-combeima'
+        },
+        {
+          name: 'Jardín Botánico San Jorge',
+          slug: 'jardin-botanico-san-jorge'
+        }
+      ]
+    },
+    Melgar: {
+      nombre: 'Melgar',
+      descripcion: 'Destino turístico por excelencia, clima cálido.',
+      tours: [
+        {
+          name: 'Parques acuáticos',
+          slug: 'parques-acuaticos-melgar'
+        }
+      ]
+    },
+    Suarez: {
+      nombre: 'Suárez',
+      descripcion: 'Destino turístico por excelencia, clima cálido y frio.',
+      tours: [
+        {
+          name: 'Parques acuáticos',
+          slug: 'parques-acuaticos-suarez'
+        }
+      ]
+    },
+    Venadillo: {
+      nombre: 'Venadillo',
+      descripcion: 'Destino turístico por excelencia, clima cálido.',
+      tours: [
+        {
+          name: 'Parques acuáticos',
+          slug: 'parques-acuaticos-venadillo'
+        }
+      ]
     }
-}
+  }
+
+  const { hovered, selected } = useTolimaMap(mapContainer, municipios)
 
 </script>
+
+
+<style scoped>
+  :deep(svg) {
+    width: 100%;
+    height: 500px;
+    transition: transform 0.6s ease;
+  }
+
+  :deep(svg.zoomed) {
+    transform: scale(1.15);
+  }
+
+  :deep(svg path) {
+    fill: rgba(212, 175, 55, 0.6);
+    stroke: #000;
+    stroke-width: 1;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  :deep(svg path:hover) {
+    fill: #6D1B2D;
+  }
+
+  :deep(svg path.selected) {
+    fill: #6D1B2D;
+  }
+
+</style>
+

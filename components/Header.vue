@@ -16,7 +16,6 @@
         </span>
       </a>
 
-
       <!-- NAV DESKTOP -->
       <nav class="hidden md:flex items-center gap-8 font-medium">
         <a href="#inicio" class="nav-link">Inicio</a>
@@ -34,14 +33,13 @@
       </nav>
 
       <!-- phone and email -->
-      <div class="hidden md:flex">
+      <div class="hidden md:flex font-medium">
         <i class="fa-solid fa-phone text-xl text-[#D4AF37] mr-1"></i>
         +57 325-6372653
 
         <i class="fa-solid fa-sms text-xl text-[#D4AF37] ml-6 mr-1"></i>
         info@tolimagico.co
       </div>
-
 
       <!-- BOTÓN MÓVIL -->
       <button
@@ -82,12 +80,13 @@
           href="#destinos"
           class="mt-4 text-center px-6 py-3 rounded-full bg-[#6D1B2D] text-white font-semibold"
         >
-          Explorar destinos
+          Contáctenos
         </a>
       </nav>
     </div>
   </header>
 </template>
+
 
 <script setup>
 import { ref } from 'vue'
