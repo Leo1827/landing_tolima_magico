@@ -127,7 +127,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('/images/fondo.jpg'); /* <-- reemplaza con tu imagen */
+    background-image: url('https://images.pexels.com/photos/5769597/pexels-photo-5769597.jpeg'); /* <-- reemplaza con tu imagen */
     background-size: cover;
     background-position: center;
     z-index: 0;
