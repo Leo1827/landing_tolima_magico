@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed top-0 w-full z-75 bg-white/70 backdrop-blur-md border-b border-[#6D1B2D]"
+    class="fixed top-0 w-full z-75 bg-none md:bg-white/70 backdrop-blur-md "
   >
     <div class="max-w-7xl md:px-0 px-6 mx-auto py-3 flex items-center justify-between">
 
@@ -44,7 +44,7 @@
       <!-- BOTÓN MÓVIL -->
       <button
         @click="menuOpen = !menuOpen"
-        class="md:hidden text-[#6D1B2D] focus:outline-none"
+        class="md:hidden text-[#fff] focus:outline-none"
         aria-label="Abrir menú"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"

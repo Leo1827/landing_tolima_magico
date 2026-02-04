@@ -8,7 +8,7 @@
     >
 
       <!-- TEXTO -->
-      <div class="flex-grow">
+      <div class="flex-grow backdrop-blur-md p-6">
         <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
           Descubre la magia del
           <span class="text-[#D4AF37]">Tolima</span>
@@ -24,7 +24,7 @@
       <!-- MAPA TOLIMA REAL -->
       <!-- IMAGEN DEPARTAMENTO DEL TOLIMA -->
       <div
-        class="relative backdrop-blur-md rounded-3xl p-6
+        class="relative rounded-3xl p-6
               flex justify-center items-center min-h-[520px]"
       >
         <div
@@ -114,6 +114,32 @@
 </script>
 
 <style scoped>
+
+  #inicio {
+    /* Mantener gradiente como fondo */
+    background: linear-gradient(to bottom right, #6D1B2D, #8a3a2b, #D4AF37);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Imagen de fondo */
+  #inicio::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/fondo.jpg'); /* <-- reemplaza con tu imagen */
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    opacity: 0.4; /* controla cuánto se oscurece */
+  }
+
+  /* Todo el contenido por encima de la imagen */
+  #inicio > div {
+    position: relative;
+    z-index: 10;
+  }
+
 
   :deep(svg) {
     width: 100%;
