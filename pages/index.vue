@@ -9,7 +9,7 @@
     <AnnouncementsSection />
     <ScrollTop />
     <Footer />
-
+    <Preloader />
     <!-- ================= FLOATING SOCIALS ================= -->
     <div class="fixed right-4 top-1/3 z-50 space-y-3">
       <a href="#" class="w-12 h-12 flex items-center justify-center rounded-full bg-[#6D1B2D] text-white hover:bg-[#D4AF37] transition">
@@ -33,6 +33,7 @@
 
 <script setup>
   import Header from '@/components/Header.vue'
+  import Preloader from '@/components/Preloader.vue'
   import Hero from '@/components/Hero.vue'
   import About from '@/components/About.vue'
   import Packages from '@/components/Packages.vue'
