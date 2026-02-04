@@ -4,11 +4,11 @@
     class="pt-32 min-h-screen bg-gradient-to-br from-[#6D1B2D] via-[#8a3a2b] to-[#D4AF37] text-white"
   >
     <div
-      class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 items-center"
+      class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-8"
     >
 
       <!-- TEXTO -->
-      <div>
+      <div class="flex-grow">
         <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
           Descubre la magia del
           <span class="text-[#D4AF37]">Tolima</span>
@@ -27,42 +27,57 @@
         class="relative backdrop-blur-md rounded-3xl p-6
               flex justify-center items-center min-h-[520px]"
       >
+        <div
+          v-if="selected?.tours?.length"
+          class="absolute top-6 z-90 ml-16 left-0 bg-[#D4AF37] text-black text-xs font-bold px-3 py-1 rounded-full shadow"
+        >
+          {{ selected.tours.length }} experiencias
+        </div>
+
           <!-- MAPA SVG COLOMBIA -->
           <div ref="mapContainer" v-html="tolimaSvg" 
               class="w-full h-full flex justify-center items-center">
           </div>
 
-        <span class="absolute bottom-4 text-xs text-white/70">
-          Departamento del Tolima · Colombia
-        </span>
       </div>
 
       <!-- INFO REGIÓN -->
-      <div
-        class="bg-white/10 backdrop-blur-md rounded-3xl p-6 min-h-[260px]"
-      >
-        <h3 class="text-xl font-bold text-[#D4AF37] mb-2">
-          {{ selected?.nombre || hovered?.nombre || 'Seleccione un municipio' }}
+      <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 min-h-[260px]">
+        <h3 class="text-2xl font-extrabold text-[#D4AF37]">
+          {{ selected?.nombre || 'Seleccione un municipio' }}
         </h3>
 
-        <p class="text-white/90 text-sm leading-relaxed">
+        <p class="text-white/80 text-sm mt-2">
           {{ selected?.descripcion || 'Haz clic en un municipio para ver detalles.' }}
         </p>
 
-        <ul v-if="selected?.tours" class="mt-4 space-y-2 text-sm">
-          <li
-            v-for="tour in selected.tours"
-            :key="tour.slug"
-          >
-            <NuxtLink
-              :to="`/tours/${tour.slug}`"
-              class="text-[#D4AF37] hover:underline hover:text-white transition"
+        <!-- PLANES -->
+        <div v-if="selected?.tours" class="mt-5">
+          <h4 class="text-sm uppercase tracking-wide text-white/70 mb-3">
+            Planes disponibles
+          </h4>
+
+          <ul class="space-y-3">
+            <li
+              v-for="tour in selected.tours"
+              :key="tour.slug"
+              class="flex items-start gap-3"
             >
-              → {{ tour.name }}
-            </NuxtLink>
-          </li>
-        </ul>
+              <span class="text-[#D4AF37]">|</span>
+              <NuxtLink
+                :to="`/tours/${tour.slug}`"
+                class="hover:text-[#D4AF37] transition"
+              >
+                <strong>{{ tour.name }}</strong>
+                <p class="text-xs text-white/70">
+                  {{ tour.description }}
+                </p>
+              </NuxtLink>
+            </li>
+          </ul>
+        </div>
       </div>
+
     </div>
   </section>
 </template>
@@ -80,53 +95,26 @@
       descripcion: 'Capital musical de Colombia, rodeada de montañas y naturaleza.',
       tours: [
         {
-          name: 'Cañón del Combeima',
-          slug: 'canon-del-combeima'
+          name: 'CAÑON DEL COMBEIMA',
+          slug: 'canon-del-combeima',
+          description: 'Parque Nacional Natural Los Nevados, cerca de Ibagué. Montañas, cascadas y bosques'
         },
         {
-          name: 'Jardín Botánico San Jorge',
-          slug: 'jardin-botanico-san-jorge'
-        }
+          name: 'TOCHE',
+          slug: 'toche',
+          description: 'Rodeado de bosques andinos, hábitat de la palma de cera árbol nacional de Colombia. '
+        },
       ]
     },
-    Melgar: {
-      nombre: 'Melgar',
-      descripcion: 'Destino turístico por excelencia, clima cálido.',
-      tours: [
-        {
-          name: 'Parques acuáticos',
-          slug: 'parques-acuaticos-melgar'
-        }
-      ]
-    },
-    Suarez: {
-      nombre: 'Suárez',
-      descripcion: 'Destino turístico por excelencia, clima cálido y frio.',
-      tours: [
-        {
-          name: 'Parques acuáticos',
-          slug: 'parques-acuaticos-suarez'
-        }
-      ]
-    },
-    Venadillo: {
-      nombre: 'Venadillo',
-      descripcion: 'Destino turístico por excelencia, clima cálido.',
-      tours: [
-        {
-          name: 'Parques acuáticos',
-          slug: 'parques-acuaticos-venadillo'
-        }
-      ]
-    }
+    
   }
 
   const { hovered, selected } = useTolimaMap(mapContainer, municipios)
 
 </script>
 
-
 <style scoped>
+
   :deep(svg) {
     width: 100%;
     height: 500px;
@@ -137,20 +125,28 @@
     transform: scale(1.15);
   }
 
+  /* Estado normal */
   :deep(svg path) {
     fill: rgba(212, 175, 55, 0.6);
     stroke: #000;
     stroke-width: 1;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: transform 0.3s ease, fill 0.3s ease;
+    transform-origin: center;
+    transform-box: fill-box;
   }
 
-  :deep(svg path:hover) {
+  /* Hover → zoom SOLO al municipio */
+  :deep(svg path.hovered) {
     fill: #6D1B2D;
+    transform: scale(1.2);
   }
 
+  /* Seleccionado → zoom persistente */
   :deep(svg path.selected) {
     fill: #6D1B2D;
+    transform: scale(1.20);
+    z-index: 10;
   }
 
 </style>
