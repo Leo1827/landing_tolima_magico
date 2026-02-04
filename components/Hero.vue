@@ -1,7 +1,7 @@
 <template>
   <section
     id="inicio"
-    class="pt-32 min-h-screen bg-gradient-to-br from-[#6D1B2D] via-[#8a3a2b] to-[#D4AF37] text-white"
+    class="fondoImg pt-32 min-h-screen bg-gradient-to-br from-[#6D1B2D] via-[#8a3a2b] to-[#D4AF37] text-white"
   >
     <div
       class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-8"
@@ -27,12 +27,12 @@
         class="relative rounded-3xl p-6
               flex justify-center items-center min-h-[520px]"
       >
-        <div
+        <span
           v-if="selected?.tours?.length"
-          class="absolute top-6 z-90 ml-16 left-0 bg-[#D4AF37] text-black text-xs font-bold px-3 py-1 rounded-full shadow"
+          class="absolute top-6 z-90  bg-[#D4AF37] text-black text-xs font-bold px-3 py-1 rounded-full shadow"
         >
           {{ selected.tours.length }} experiencias
-        </div>
+        </span>
 
           <!-- MAPA SVG COLOMBIA -->
           <div ref="mapContainer" v-html="tolimaSvg" 
@@ -115,7 +115,7 @@
 
 <style scoped>
 
-  #inicio {
+  .fondoImg {
     /* Mantener gradiente como fondo */
     background: linear-gradient(to bottom right, #6D1B2D, #8a3a2b, #D4AF37);
     position: relative;
@@ -123,7 +123,7 @@
   }
 
   /* Imagen de fondo */
-  #inicio::before {
+  .fondoImg::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -135,7 +135,7 @@
   }
 
   /* Todo el contenido por encima de la imagen */
-  #inicio > div {
+  .fondoImg > div {
     position: relative;
     z-index: 10;
   }
