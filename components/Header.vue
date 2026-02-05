@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed top-0 w-full z-75 bg-none md:bg-white/70 backdrop-blur-md "
+    class="fixed top-0 w-full z-75 bg-none  backdrop-blur-md "
   >
     <div class="max-w-7xl md:px-0 px-6 mx-auto py-3 flex items-center justify-between">
 

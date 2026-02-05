@@ -1,18 +1,31 @@
 <template>
   <section
     id="inicio"
-    class="fondoImg pt-32 min-h-screen text-white
-          bg-gradient-to-br from-[#6D1B2D] via-[#8a3a2b] to-[#D4AF37]
+    class="relative pt-32 min-h-screen text-white
           [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]
           [-webkit-mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]"
   >
+
+    <!-- CARRUSEL DE FONDO -->
+    <div class="absolute inset-0 z-0">
+      <transition-group name="fade" tag="div" class="w-full h-full">
+        <div
+          v-for="(img, index) in images"
+          v-show="currentImage === index"
+          :key="img"
+          class="absolute inset-0 bg-cover bg-center"
+          :style="{ backgroundImage: `url(${img})` }"
+        ></div>
+      </transition-group>
+    </div>
 
     <div
       class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-8"
     >
 
       <!-- TEXTO -->
-      <div class="flex-grow backdrop-blur-md p-6">
+      <div class="flex-grow rounded-3xl p-6 relative z-10">
+
         <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
           Descubre la magia del
           <span class="text-[#D4AF37]">Tolima</span>
@@ -46,7 +59,7 @@
       </div>
 
       <!-- INFO REGIÓN -->
-      <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 min-h-[260px]">
+      <div class="bg-black/10 backdrop-blur-md rounded-3xl p-6 min-h-[260px]">
         <h3 class="text-2xl font-extrabold text-[#D4AF37]">
           {{ selected?.nombre || 'Seleccione un municipio' }}
         </h3>
@@ -93,6 +106,26 @@
   import { useTolimaMap } from '~/composables/useTolimaMap'
 
   const mapContainer = ref(null)
+
+  const images = [
+    '/images/fondo1.jpeg',
+    '/images/fondo2.jpeg',
+    '/images/fondo3.jpeg'
+  ]
+
+  const currentImage = ref(0)
+  let interval = null
+
+  onMounted(() => {
+    interval = setInterval(() => {
+      currentImage.value =
+        (currentImage.value + 1) % images.length
+    }, 4000) // cambia cada 4 segundos
+  })
+
+  onUnmounted(() => {
+    clearInterval(interval)
+  })
 
   const municipios = {
     Ibague: {
@@ -150,9 +183,25 @@
 
 <style scoped>
 
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 1.5s ease-in-out;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .fade-enter-to,
+  .fade-leave-from {
+    opacity: 1;
+  }
+
+
   .fondoImg {
     /* Mantener gradiente como fondo */
-    background: linear-gradient(to bottom right, #6D1B2D, #8a3a2b, #D4AF37);
+    
     position: relative;
     overflow: hidden;
   }
@@ -162,11 +211,10 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('/images/fondo.jpg'); /* <-- reemplaza con tu imagen */
+    background-image: url('/images/fondo1.jpeg'); /* <-- reemplaza con tu imagen */
     background-size: cover;
     background-position: center;
     z-index: 0;
-    opacity: 0.4; /* controla cuánto se oscurece */
   }
 
   /* Todo el contenido por encima de la imagen */

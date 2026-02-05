@@ -21,6 +21,8 @@
       </div>
     </div>
 
+    <NuxtLink to="/paquetes" class="nav-link">Paquetes</NuxtLink>
+
     <p class="text-center text-xs text-white/50 mt-8">
       © 2026 Tolima Mágico · Turismo sostenible
     </p>
