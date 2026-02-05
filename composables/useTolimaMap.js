@@ -1,4 +1,4 @@
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 
 export const useTolimaMap = (mapContainer, municipios) => {
   const hovered = ref(null)
@@ -41,8 +41,6 @@ export const useTolimaMap = (mapContainer, municipios) => {
 
       const key = normalize(rawName)
       const municipio = municipiosNormalized[key]
-
-      console.log(key, municipio)
 
       // Solo dibuja estrella si existe municipio y tiene tours
       if (municipio && Array.isArray(municipio.tours) && municipio.tours.length > 0) {
@@ -115,3 +113,12 @@ export const useTolimaMap = (mapContainer, municipios) => {
     selected
   }
 }
+
+const limitedTours = computed(() => {
+  if (!selected.value?.tours) return []
+  return selected.value.tours.slice(0, 2)
+})
+
+const showVerMas = computed(() => {
+  return selected.value?.tours?.length > 2
+})

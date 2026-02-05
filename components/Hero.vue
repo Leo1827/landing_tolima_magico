@@ -1,8 +1,12 @@
 <template>
   <section
     id="inicio"
-    class="fondoImg pt-32 min-h-screen bg-gradient-to-br from-[#6D1B2D] via-[#8a3a2b] to-[#D4AF37] text-white"
+    class="fondoImg pt-32 min-h-screen text-white
+          bg-gradient-to-br from-[#6D1B2D] via-[#8a3a2b] to-[#D4AF37]
+          [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]
+          [-webkit-mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]"
   >
+
     <div
       class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-8"
     >
@@ -73,6 +77,7 @@
                   {{ tour.description }}
                 </p>
               </NuxtLink>
+
             </li>
           </ul>
         </div>

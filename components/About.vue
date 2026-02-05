@@ -1,7 +1,7 @@
 <template>
   <section
     id="nosotros"
-    class="py-24 bg-white text-[#2b2b2b]"
+    class="py-24 text-[#2b2b2b]"
   >
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
       

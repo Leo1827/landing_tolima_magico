@@ -11,7 +11,7 @@
 
       <div>
         <h4 class="font-bold mb-2">Contacto</h4>
-        <p class="text-sm">WhatsApp · Correo · Redes sociales</p>
+        <p class="text-sm">+57 300-8898623 - 322-9442351 · tolimamagico@gmail.com </p>
       </div>
 
       <div class="flex gap-4 text-xl">

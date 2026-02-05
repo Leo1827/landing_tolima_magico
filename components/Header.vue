@@ -35,10 +35,10 @@
       <!-- phone and email -->
       <div class="hidden md:flex font-medium">
         <i class="fa-solid fa-phone text-xl text-[#D4AF37] mr-1"></i>
-        +57 325-6372653
+        +57 300-8898623
 
         <i class="fa-solid fa-sms text-xl text-[#D4AF37] ml-6 mr-1"></i>
-        info@tolimagico.co
+        tolimamagico@gmail.com
       </div>
 
       <!-- BOTÓN MÓVIL -->
