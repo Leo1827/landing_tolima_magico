@@ -23,7 +23,7 @@
       </a>
     </div>
     <!-- ================= WHATSAPP ================= -->
-    <a href="https://wa.me/573000000000" target="_blank"
+    <a href="https://wa.me/573229442351?text=Hola%20me%20gustaría%20mas%20información" target="_blank"
       class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition z-50">
       <i class="fab fa-whatsapp"></i>
     </a>

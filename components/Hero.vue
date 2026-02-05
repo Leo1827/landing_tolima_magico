@@ -109,6 +109,36 @@
           slug: 'toche',
           description: 'Rodeado de bosques andinos, hábitat de la palma de cera árbol nacional de Colombia. '
         },
+        {
+          name: 'PAN DE AZUCAR',
+          slug: 'canon-del-combeima',
+          description: 'Parque Nacional Natural Los Nevados, cerca de Ibagué. Montañas, cascadas y bosques'
+        },
+        {
+          name: 'TOCHE',
+          slug: 'toche',
+          description: 'Rodeado de bosques andinos, hábitat de la palma de cera árbol nacional de Colombia. '
+        },
+        {
+          name: 'CAÑON DEL COMBEIMA',
+          slug: 'canon-del-combeima',
+          description: 'Parque Nacional Natural Los Nevados, cerca de Ibagué. Montañas, cascadas y bosques'
+        },
+        {
+          name: 'TOCHE',
+          slug: 'toche',
+          description: 'Rodeado de bosques andinos, hábitat de la palma de cera árbol nacional de Colombia. '
+        },
+        {
+          name: 'CAÑON DEL COMBEIMA',
+          slug: 'canon-del-combeima',
+          description: 'Parque Nacional Natural Los Nevados, cerca de Ibagué. Montañas, cascadas y bosques'
+        },
+        {
+          name: 'TOCHE',
+          slug: 'toche',
+          description: 'Rodeado de bosques andinos, hábitat de la palma de cera árbol nacional de Colombia. '
+        },
       ]
     },
     
@@ -132,7 +162,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('https://images.pexels.com/photos/5769597/pexels-photo-5769597.jpeg'); /* <-- reemplaza con tu imagen */
+    background-image: url('/images/fondo.jpg'); /* <-- reemplaza con tu imagen */
     background-size: cover;
     background-position: center;
     z-index: 0;
