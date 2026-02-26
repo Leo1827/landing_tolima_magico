@@ -15,7 +15,7 @@
         <img
           :src="paquete.imagen"
           :alt="paquete.nombre"
-          class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          class="h-[32rem] md:h-100 w-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
 
         <!-- Gradient overlay -->
@@ -44,74 +44,94 @@ const paquetes = [
   {
     nombre: 'CAÑON DEL COMBEIMA',
     slug: 'canon-del-combeima',
+    ciudad: 'ibague',
+    ciudadLabel: 'Ibagué',
     description:
       'Parque Nacional Natural Los Nevados, cerca de Ibagué. Montañas, cascadas y bosques',
-    imagen: 'https://images.pexels.com/photos/545960/pexels-photo-545960.jpeg'
+    imagen: 'images/rancho.jpg'
   },
   {
     nombre: 'TOCHE',
     slug: 'toche',
+    ciudad: 'ibague',
+    ciudadLabel: 'Ibagué',
     description:
       'Rodeado de bosques andinos, hábitat de la palma de cera árbol nacional de Colombia.',
-    imagen: '/images/paquetes/toche.jpg'
+    imagen: '/images/toche.jpg'
   },
   {
     nombre: 'PAN DE AZUCAR',
     slug: 'pan-de-azucar',
+    ciudad: 'ibague',
+    ciudadLabel: 'Ibagué',
     description:
       'Destino de montaña ideal para senderismo y aventura en el Tolima.',
-    imagen: '/images/paquetes/pan-azucar.jpg'
+    imagen: 'https://enfoqueteve.com/wp-content/uploads/2023/05/IMG_20230508_110028_1000_x_628_pixel.jpg'
   },
   {
     nombre: 'CASCADA LA ARAÑA',
     slug: 'cascada-la-arana',
+    ciudad: 'ibague',
+    ciudadLabel: 'Ibagué',
     description:
       'Hermosa cascada natural ideal para caminatas ecológicas cerca de Ibagué.',
-    imagen: '/images/paquetes/cascada-arana.jpg'
+    imagen: '/images/cascada-arana.jpg'
   },
   {
     nombre: 'CASCADA LA MONTAÑA',
     slug: 'cascada-la-montana',
+    ciudad: 'ibague',
+    ciudadLabel: 'Ibagué',
     description:
       'Destino de naturaleza con senderos y vistas panorámicas.',
-    imagen: '/images/paquetes/cascada-montana.jpg'
+    imagen: '/images/cascada-montana.jpg'
   },
   {
-    nombre: 'CASCADA LA PLUMA',
+    nombre: 'CASCADA LA PLUMA - SAN JUAN DE LA CHINA',
     slug: 'cascada-la-pluma',
+    ciudad: 'ibague',
+    ciudadLabel: 'Ibagué',
     description:
       'Cascada rodeada de vegetación ideal para turismo de aventura.',
-    imagen: '/images/paquetes/cascada-pluma.jpg'
+    imagen: '/images/cascada-pluma.jpg'
   },
   {
     nombre: 'FINCA CIELO LINDO',
     slug: 'finca-cielo-lindo',
+    ciudad: 'ibague',
+    ciudadLabel: 'Ibagué',
     description:
       'Experiencia campestre con paisajes naturales y descanso rural.',
-    imagen: '/images/paquetes/cielo-lindo.jpg'
+    imagen: '/images/cielo-lindo.jpg'
   },
   {
     nombre: 'MUNDO SONORO',
     slug: 'mundo-sonoro',
+    ciudad: 'ibague',
+    ciudadLabel: 'Ibagué',
     description:
       'Espacio cultural y musical representativo de Ibagué.',
-    imagen: '/images/paquetes/mundo-sonoro.jpg'
+    imagen: '/images/mundo-sonoro.jpg'
   },
   {
     nombre: 'TERMALES EL RANCHO',
     slug: 'termales-el-rancho',
+    ciudad: 'ibague',
+    ciudadLabel: 'Ibagué',
     description:
       'Aguas termales naturales ideales para relajación y bienestar.',
-    imagen: '/images/paquetes/termales-rancho.jpg'
+    imagen: '/images/termales-rancho.jpg'
   },
 
   // alvarado
   {
     nombre: 'CASCADA LA CAIMA',
     slug: 'cascada-la-caima',
+    ciudad: 'alvarado',
+    ciudadLabel: 'Alvarado',
     description:
       'La Cascada La Caima, ubicada en Alvarado (Tolima), es un destino natural rodeado de vegetación y aguas cristalinas',
-    imagen: '/images/paquetes/termales-rancho.jpg'
+    imagen: '/images/cascada-caima.jpg'
   },
 
   // anzoategui
@@ -120,7 +140,7 @@ const paquetes = [
     slug: 'palomar',
     description:
       'Corregimiento montañoso de Anzoátegui, perfecto para turismo de naturaleza y descanso rural.',
-    imagen: '/images/paquetes/termales-rancho.jpg'
+    imagen: '/images/palomar.jpg'
   }
 ]
 </script>
