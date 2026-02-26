@@ -5,7 +5,7 @@
     <div class="max-w-7xl md:px-0 px-6 mx-auto py-3 flex items-center justify-between">
 
       <!-- LOGO -->
-      <a href="/" class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-3 ">
         <img
           src="/images/logo.png"
           alt="Tolima Mágico - Turismo Regional en Colombia"
@@ -23,19 +23,13 @@
         <a href="#destinos" class="nav-link">Destinos</a>
         <a href="#testimonials" class="nav-link">Experiencias</a>
 
-        <!-- CTA -->
-        <a
-          href="#contacto"
-          class="ml-4 px-8 py-1 rounded-full bg-[#6D1B2D] text-white font-semibold hover:bg-[#D4AF37] hover:text-[#6D1B2D] transition"
-        >
-          Contacto
-        </a>
+
       </nav>
 
       <!-- phone and email -->
       <div class="hidden md:flex font-medium">
         <i class="fa-solid fa-phone text-xl text-[#D4AF37] mr-1"></i>
-        +57 300-8898623
+        +57 322-9442351
 
         <i class="fa-solid fa-sms text-xl text-[#D4AF37] ml-6 mr-1"></i>
         tolimamagico@gmail.com

@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="show"
-    class="fixed inset-0 z-50 flex flex-col justify-center items-center bg-gradient-to-br from-[#6D1B2D] via-[#8a3a2b] to-[#D4AF37] text-white"
+    class="fixed inset-0 z-50 flex flex-col justify-center items-center bg-[#f3f3f3] text-black"
   >
     <!-- Animación estrella -->
     <div class="animate-bounce mb-4">
@@ -34,9 +34,9 @@ onMounted(() => {
     if (progress.value >= 100) {
       progress.value = 100
       clearInterval(interval)
-      setTimeout(() => (show.value = false), 300) // espera un poco antes de ocultar
+      setTimeout(() => (show.value = false), 50) // espera un poco antes de ocultar
     }
-  }, 300)
+  }, 50)
 })
 </script>
 

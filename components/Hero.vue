@@ -1,6 +1,7 @@
 <template>
   <section
     id="inicio"
+    style="height: 180%;"
     class="relative pt-32 min-h-screen text-white
           [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]
           [-webkit-mask-image:linear-gradient(to_bottom,black_85%,transparent_100%)]"
@@ -59,7 +60,7 @@
       </div>
 
       <!-- INFO REGIÓN -->
-      <div class="bg-black/10 backdrop-blur-md rounded-3xl p-6 min-h-[260px]">
+      <div class="bg-black/10 backdrop-blur-md rounded-3xl p-6 min-h-[260px] pb-32">
         <h3 class="text-2xl font-extrabold text-[#D4AF37]">
           {{ selected?.nombre || 'Seleccione un municipio' }}
         </h3>
@@ -82,7 +83,7 @@
             >
               <span class="text-[#D4AF37]">|</span>
               <NuxtLink
-                :to="`/tours/${tour.slug}`"
+                :to="`/paquetes/${tour.slug}`"
                 class="hover:text-[#D4AF37] transition"
               >
                 <strong>{{ tour.name }}</strong>
@@ -130,50 +131,93 @@
   const municipios = {
     Ibague: {
       nombre: 'Ibagué',
-      descripcion: 'Capital musical de Colombia, rodeada de montañas y naturaleza.',
+      descripcion:
+        'Capital musical de Colombia, rodeada de montañas y naturaleza.',
       tours: [
         {
           name: 'CAÑON DEL COMBEIMA',
           slug: 'canon-del-combeima',
-          description: 'Parque Nacional Natural Los Nevados, cerca de Ibagué. Montañas, cascadas y bosques'
+          description:
+            'Parque Nacional Natural Los Nevados, cerca de Ibagué. Montañas, cascadas y bosques'
         },
         {
           name: 'TOCHE',
           slug: 'toche',
-          description: 'Rodeado de bosques andinos, hábitat de la palma de cera árbol nacional de Colombia. '
+          description:
+            'Rodeado de bosques andinos, hábitat de la palma de cera árbol nacional de Colombia.'
         },
         {
           name: 'PAN DE AZUCAR',
-          slug: 'canon-del-combeima',
-          description: 'Parque Nacional Natural Los Nevados, cerca de Ibagué. Montañas, cascadas y bosques'
+          slug: 'pan-de-azucar',
+          description:
+            'Parque Nacional Natural Los Nevados, cerca de Ibagué. Montañas, cascadas y bosques'
         },
         {
-          name: 'TOCHE',
-          slug: 'toche',
-          description: 'Rodeado de bosques andinos, hábitat de la palma de cera árbol nacional de Colombia. '
+          name: 'CASCADA LA ARAÑA',
+          slug: 'cascada-la-arana',
+          description:
+            'Hermosa cascada natural ideal para caminatas ecológicas cerca de Ibagué.'
         },
         {
-          name: 'CAÑON DEL COMBEIMA',
-          slug: 'canon-del-combeima',
-          description: 'Parque Nacional Natural Los Nevados, cerca de Ibagué. Montañas, cascadas y bosques'
+          name: 'CASCADA LA MONTAÑA',
+          slug: 'cascada-la-montana',
+          description:
+            'Destino de naturaleza con senderos y vistas panorámicas.'
         },
         {
-          name: 'TOCHE',
-          slug: 'toche',
-          description: 'Rodeado de bosques andinos, hábitat de la palma de cera árbol nacional de Colombia. '
+          name: 'CASCADA LA PLUMA',
+          slug: 'cascada-la-pluma',
+          description:
+            'Cascada rodeada de vegetación ideal para turismo de aventura.'
         },
         {
-          name: 'CAÑON DEL COMBEIMA',
-          slug: 'canon-del-combeima',
-          description: 'Parque Nacional Natural Los Nevados, cerca de Ibagué. Montañas, cascadas y bosques'
+          name: 'FINCA CIELO LINDO',
+          slug: 'finca-cielo-lindo',
+          description:
+            'Experiencia campestre con paisajes naturales y descanso rural.'
         },
         {
-          name: 'TOCHE',
-          slug: 'toche',
-          description: 'Rodeado de bosques andinos, hábitat de la palma de cera árbol nacional de Colombia. '
+          name: 'MUNDO SONORO',
+          slug: 'mundo-sonoro',
+          description:
+            'Espacio cultural y musical representativo de Ibagué.'
         },
+        {
+          name: 'TERMALES EL RANCHO',
+          slug: 'termales-el-rancho',
+          description:
+            'Aguas termales naturales ideales para relajación y bienestar.'
+        }
       ]
     },
+
+    Alvarado: {
+      nombre: 'Alvarado',
+      descripcion:
+        'Municipio del Tolima reconocido por su tradición agrícola, paisajes cálidos y cercanía a importantes rutas turísticas del departamento.',
+      tours: [
+        {
+          name: 'CASCADA LA CAIMA',
+          slug: 'cascada-la-caima',
+          description:
+            'La Cascada La Caima, ubicada en Alvarado (Tolima), es un destino natural rodeado de vegetación y aguas cristalinas'
+        }
+      ]
+    },
+
+    Anzoategui: {
+      nombre: 'Anzoategui',
+      descripcion:
+        'Palomar, en Anzoátegui (Tolima), es un destino rural rodeado de montañas y naturaleza, ideal para quienes buscan tranquilidad y experiencias de turismo ecológico.',
+      tours: [
+        {
+          name: 'PALOMAR',
+          slug: 'palomar',
+          description:
+            'Corregimiento montañoso de Anzoátegui, perfecto para turismo de naturaleza y descanso rural.'
+        }
+      ]
+    }
     
   }
 
@@ -198,13 +242,13 @@
     opacity: 1;
   }
 
-
   .fondoImg {
     /* Mantener gradiente como fondo */
-    
+    background: linear-gradient(to bottom right, #6D1B2D, #8a3a2b, #D4AF37);
     position: relative;
     overflow: hidden;
   }
+
 
   /* Imagen de fondo */
   .fondoImg::before {
@@ -215,6 +259,7 @@
     background-size: cover;
     background-position: center;
     z-index: 0;
+    opacity: 0.4; /* controla cuánto se oscurece */
   }
 
   /* Todo el contenido por encima de la imagen */
